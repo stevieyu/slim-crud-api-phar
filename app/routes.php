@@ -9,8 +9,6 @@ use Slim\App;
 use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 
 return function (App $app) {
-
-
     // Add this handler for PHP-CRUD-API:
     $app->any('/api[/{params:.*}]', function (Request $request, Response $response, array $args) {
         $api = new Tqdev\PhpCrudApi\Api(new Tqdev\PhpCrudApi\Config([

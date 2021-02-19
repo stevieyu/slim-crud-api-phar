@@ -1,0 +1,9 @@
+{
+  "main": "public/index.php",
+  "stub": false,
+  "output": "slim-crud-api.phar",
+  "check-requirements": false,
+  "directories": [
+    "app", "src", "logs","vendor"
+  ]
+}
