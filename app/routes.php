@@ -9,6 +9,21 @@ use Slim\App;
 use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 
 return function (App $app) {
+
+
+    // Add this handler for PHP-CRUD-API:
+    $app->any('/api[/{params:.*}]', function (Request $request, Response $response, array $args) {
+        $api = new Tqdev\PhpCrudApi\Api(new Tqdev\PhpCrudApi\Config([
+            'address' => 'sdm688990573.my3w.com',
+            'username' => 'sdm688990573',
+            'password' => 'asAS12!@',
+            'database' => 'sdm688990573_db',
+            'basePath' => '/api',
+        ]));
+        $response = $api->handle($request);
+        return $response;
+    });
+
     $app->options('/{routes:.*}', function (Request $request, Response $response) {
         // CORS Pre-Flight OPTIONS Request Handler
         return $response;
